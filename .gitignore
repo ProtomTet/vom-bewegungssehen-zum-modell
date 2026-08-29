@@ -12,5 +12,7 @@ desktop.ini
 *.avi
 *.xlsx
 !apps/**/beispiel*.xlsx
+# Das Arbeitsmaterial gehoert ausdruecklich dazu
+!material/**/*.xlsx
 .vscode/
 .idea/

@@ -20,6 +20,22 @@ verändern können. Für Kinovea und Tracker sind sie eine Ergänzung, kein Ersa
 | [`kugelstoss-liveanalyse`](apps/kugelstoss-liveanalyse/) | Live-Ansicht und Phasenerkennung fuer den Kugelstoss | Tag 3, Aufgabe 9 |
 | [`flugbahn-modellierer`](apps/flugbahn-modellierer/) | Flugbahnen modellieren, Parameter variieren, Rechenweg anzeigen | Tag 3, Aufgabe 7 und 8 |
 
+## Arbeitsmaterial
+
+Neben den Programmen liegt im Ordner [`material`](material/) alles, was zum Reader gehoert,
+sich aber nicht drucken laesst.
+
+| Ordner | Inhalt |
+|---|---|
+| [`material/excel`](material/excel/) | Auswertungsvorlage fuer den Countermovement Jump und ein ausgefuelltes Beispiel |
+| [`material/daten`](material/daten/) | Sprungrohdaten und der Sprintdatensatz zu Tokio 1991 |
+| [`material/aufgabenblaetter`](material/aufgabenblaetter/) | die neun Aufgaben als einzelne, bearbeitbare Dateien |
+
+Wer nur die Dateien braucht und nicht durch das Repositorium klicken moechte, laedt das
+Gesamtarchiv ueber die
+[dauerhafte Kennung](https://doi.org/10.5281/zenodo.22161338) herunter — dort liegt zu jeder
+Veroeffentlichung ein vollstaendiges Archiv.
+
 ## Schnellstart
 
 Voraussetzung ist Python 3.11 oder neuer. Im Ordner des Repositories:
