@@ -74,7 +74,7 @@ beisteuern.
 Dieses Werk ist lizenziert unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de).
 Sie dürfen es teilen und bearbeiten, auch kommerziell, wenn Sie den Urheber nennen und
 Ihre Bearbeitung unter derselben Lizenz weitergeben. Der vollständige Text steht in
-[`LICENSE`](LICENSE).
+[`LICENSE`](LICENSE), eine deutsche Erläuterung in [`LICENSE-HINWEIS.md`](LICENSE-HINWEIS.md).
 
 Vorgeschlagene Namensnennung:
 
