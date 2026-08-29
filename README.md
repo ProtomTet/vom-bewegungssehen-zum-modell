@@ -69,4 +69,14 @@ beisteuern.
 
 ## Lizenz
 
-Siehe [`LICENSE`](LICENSE). *Die Lizenz ist noch festzulegen — siehe Hinweis in der Datei.*
+[![Lizenz: CC BY-SA 4.0](https://img.shields.io/badge/Lizenz-CC%20BY--SA%204.0-1F3864.svg)](https://creativecommons.org/licenses/by-sa/4.0/deed.de)
+
+Dieses Werk ist lizenziert unter [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.de).
+Sie dürfen es teilen und bearbeiten, auch kommerziell, wenn Sie den Urheber nennen und
+Ihre Bearbeitung unter derselben Lizenz weitergeben. Der vollständige Text steht in
+[`LICENSE`](LICENSE).
+
+Vorgeschlagene Namensnennung:
+
+> Thomas Ertelt (2026): *Vom Bewegungssehen zum Modell — Begleitsoftware.*
+> Lizenz CC BY-SA 4.0. https://github.com/ProtomTet/vom-bewegungssehen-zum-modell
