@@ -1,5 +1,7 @@
 # Vom Bewegungssehen zum Modell — Begleitsoftware
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22161338.svg)](https://doi.org/10.5281/zenodo.22161338)
+
 Fünf kleine Python-Anwendungen zum Seminar bzw. Reader *Vom Bewegungssehen zum Modell.
 Sprint, Sprung und Wurf als fächerverbindender Lernraum für Sport, Mathematik, Physik,
 Biologie und Informatik.*
@@ -79,4 +81,17 @@ Ihre Bearbeitung unter derselben Lizenz weitergeben. Der vollständige Text steh
 Vorgeschlagene Namensnennung:
 
 > Thomas Ertelt (2026): *Vom Bewegungssehen zum Modell — Begleitsoftware.*
-> Lizenz CC BY-SA 4.0. https://github.com/ProtomTet/vom-bewegungssehen-zum-modell
+> Zenodo. https://doi.org/10.5281/zenodo.22161338 · Lizenz CC BY-SA 4.0
+
+## Dauerhafte Adresse
+
+Die Software ist bei Zenodo archiviert und über eine DOI dauerhaft erreichbar, auch
+falls dieses Repository später umzieht oder umbenannt wird.
+
+| | |
+|---|---|
+| **Concept-DOI** (immer die neueste Fassung) | [`10.5281/zenodo.22161338`](https://doi.org/10.5281/zenodo.22161338) |
+| DOI der Fassung 1.0.1 | [`10.5281/zenodo.22161339`](https://doi.org/10.5281/zenodo.22161339) |
+
+In gedruckten Materialien sollte die Concept-DOI angegeben werden — sie führt Leserinnen
+und Leser automatisch zur jeweils aktuellen Fassung.

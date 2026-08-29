@@ -19,5 +19,13 @@ keywords:
   - phyphox
   - Lehrkraeftebildung
 license: "CC-BY-SA-4.0"
-version: "1.0.0"
+doi: "10.5281/zenodo.22161338"
+version: "1.0.1"
 date-released: "2026-08-29"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22161338"
+    description: "Concept-DOI - verweist stets auf die neueste Fassung"
+  - type: doi
+    value: "10.5281/zenodo.22161339"
+    description: "DOI der Fassung 1.0.1"
