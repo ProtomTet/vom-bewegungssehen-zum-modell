@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Vom Bewegungssehen zum Modell — Begleitsoftware"
+message: "Wenn Sie diese Software verwenden, zitieren Sie sie bitte wie unten angegeben."
+type: software
+authors:
+  - family-names: Ertelt
+    given-names: Thomas
+repository-code: "https://github.com/ProtomTet/vom-bewegungssehen-zum-modell"
+abstract: >-
+  Fuenf Python-Anwendungen zur videobasierten und sensorgestuetzten Bewegungsanalyse
+  im fachverbindenden Unterricht: Videoplayer mit Kalibrierung, Kamera-Bridge,
+  phyphox-Echtzeitanbindung, Kugelstoss-Liveanalyse und Flugbahn-Modellierer.
+keywords:
+  - Biomechanik
+  - Bewegungsanalyse
+  - Sportunterricht
+  - faecherverbindender Unterricht
+  - Videoanalyse
+  - phyphox
+  - Lehrkraeftebildung
+license: "TBD"
+version: "1.0.0"
+date-released: "2026-08-29"

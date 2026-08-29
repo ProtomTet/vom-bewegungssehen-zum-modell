@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.streamlit/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.mp4
+*.mov
+*.avi
+*.xlsx
+!apps/**/beispiel*.xlsx
+.vscode/
+.idea/

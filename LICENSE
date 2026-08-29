@@ -1,0 +1,25 @@
+LIZENZ NOCH FESTZULEGEN
+=======================
+
+Fuer dieses Repository ist noch keine Lizenz gewaehlt. Ohne Lizenzangabe gilt das
+volle Urheberrecht: Andere duerfen den Code ansehen, aber nicht ohne weiteres nutzen,
+veraendern oder weitergeben. Fuer ein Material, das im Unterricht eingesetzt und
+angepasst werden soll, ist das vermutlich nicht gewollt.
+
+Zwei Vorschlaege:
+
+  MIT-Lizenz
+    Sehr freizuegig. Jede Nutzung erlaubt, auch kommerziell, solange der
+    Urhebervermerk erhalten bleibt. Ueblich fuer kleine Werkzeuge.
+
+  Creative Commons BY-SA 4.0
+    Passt zu Unterrichtsmaterial. Weitergabe und Bearbeitung erlaubt, aber
+    Bearbeitungen muessen unter derselben Lizenz stehen. Fuer reinen Programmcode
+    ist sie weniger gebraeuchlich als die MIT-Lizenz.
+
+Eine gaengige Loesung fuer Material wie dieses ist: MIT fuer den Programmcode,
+CC BY-SA 4.0 fuer Reader, Aufgaben und Abbildungen. Das laesst sich in dieser Datei
+und in der README so festhalten.
+
+Den vollstaendigen Lizenztext koennen Sie beim Anlegen ueber GitHub einfuegen lassen
+(Add file > Create new file > Dateiname "LICENSE" > Choose a license template).

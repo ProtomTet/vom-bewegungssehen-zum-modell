@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>phyphox Realtime Accelerator</title>
+  <script src="{{ url_for('static', filename='plotly.min.js') }}"></script>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --line: #d9e0ea;
+      --text: #1c2430;
+      --muted: #617086;
+      --accent: #1f6feb;
+      --ok: #0a7d33;
+      --warn: #b26b00;
+      --danger: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 1.8rem;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(31, 44, 76, 0.06);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.05rem;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin: 10px 0 6px;
+      color: var(--muted);
+    }
+    input, select, button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      background: white;
+    }
+    button {
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.15s ease;
+    }
+    button.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    button.secondary:hover, button.primary:hover {
+      filter: brightness(0.97);
+    }
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .row > * { flex: 1 1 0; }
+    .statusbox {
+      padding: 12px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 12px;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      border: 1px solid var(--line);
+      background: #f8fafc;
+    }
+    .pill.ok { color: var(--ok); border-color: rgba(10,125,51,.25); background: rgba(10,125,51,.08); }
+    .pill.warn { color: var(--warn); border-color: rgba(178,107,0,.25); background: rgba(178,107,0,.08); }
+    .pill.danger { color: var(--danger); border-color: rgba(180,35,24,.25); background: rgba(180,35,24,.08); }
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: white;
+    }
+    .metric .label { color: var(--muted); font-size: 0.85rem; margin-bottom: 4px; }
+    .metric .value { font-size: 1.05rem; font-weight: 700; }
+    #chart {
+      width: 100%;
+      height: 640px;
+    }
+    .hint {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .small { font-size: 0.85rem; color: var(--muted); }
+    @media (max-width: 1120px) {
+      .grid { grid-template-columns: 1fr; }
+      .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #chart { height: 540px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>phyphox Realtime Accelerator</h1>
+    <p class="subtitle">Live-Abruf von Beschleunigungsdaten, Start/Stopp-Steuerung, Auswahl eines Zeitfensters per Zoom oder Rangeslider und Excel-Export des sichtbaren Bereichs.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h2>1. Verbindung zu phyphox</h2>
+        <label for="baseUrl">phyphox-Adresse</label>
+        <input id="baseUrl" type="text" placeholder="z. B. http://192.168.0.42:8080">
+        <div class="small">Android nutzt typischerweise Port 8080. Auf iPhone läuft die phyphox-Weboberfläche meist auf Port 80.</div>
+        <div class="row" style="margin-top: 12px;">
+          <button id="connectBtn" class="primary">Verbinden</button>
+          <button id="stateBtn" class="secondary">Status laden</button>
+        </div>
+
+        <div class="statusbox" id="connectStatus">Noch keine Verbindung.</div>
+
+        <h2 style="margin-top: 18px;">2. Buffer-Zuordnung</h2>
+        <label for="timeBuffer">Zeit-Buffer</label>
+        <select id="timeBuffer"></select>
+        <label for="xBuffer">X-Beschleunigung</label>
+        <select id="xBuffer"></select>
+        <label for="yBuffer">Y-Beschleunigung</label>
+        <select id="yBuffer"></select>
+        <label for="zBuffer">Z-Beschleunigung</label>
+        <select id="zBuffer"></select>
+        <button id="applyBuffersBtn" style="margin-top: 12px;">Buffer übernehmen</button>
+
+        <h2 style="margin-top: 18px;">3. Messung</h2>
+        <div class="row">
+          <button id="startBtn" class="primary">Start</button>
+          <button id="stopBtn">Stop</button>
+          <button id="clearBtn">Leeren</button>
+        </div>
+
+        <h2 style="margin-top: 18px;">4. Export</h2>
+        <div class="row">
+          <button id="resetViewBtn">Ansicht zurücksetzen</button>
+          <button id="exportBtn" class="primary">Sichtbaren Bereich als Excel</button>
+        </div>
+        <div class="hint">
+          Der Export bezieht sich auf den aktuell sichtbaren Bereich der x-Achse. Diesen Bereich können Sie unter der Grafik mit dem <strong>Rangeslider</strong> verschieben oder durch <strong>Zoom</strong> eingrenzen.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="meta">
+          <div class="metric"><div class="label">Experiment</div><div class="value" id="experimentTitle">–</div></div>
+          <div class="metric"><div class="label">Messstatus</div><div class="value" id="measuringValue">–</div></div>
+          <div class="metric"><div class="label">Punkte</div><div class="value" id="countValue">0</div></div>
+          <div class="metric"><div class="label">Sichtbarer Zeitbereich</div><div class="value" id="rangeValue">komplett</div></div>
+        </div>
+
+        <div>
+          <span class="pill" id="connPill">nicht verbunden</span>
+          <span class="pill" id="runPill">wartet</span>
+          <span class="pill" id="latestPill">t = –</span>
+        </div>
+
+        <div id="chart"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const dom = {
+      baseUrl: document.getElementById('baseUrl'),
+      connectBtn: document.getElementById('connectBtn'),
+      stateBtn: document.getElementById('stateBtn'),
+      connectStatus: document.getElementById('connectStatus'),
+      experimentTitle: document.getElementById('experimentTitle'),
+      measuringValue: document.getElementById('measuringValue'),
+      countValue: document.getElementById('countValue'),
+      rangeValue: document.getElementById('rangeValue'),
+      connPill: document.getElementById('connPill'),
+      runPill: document.getElementById('runPill'),
+      latestPill: document.getElementById('latestPill'),
+      timeBuffer: document.getElementById('timeBuffer'),
+      xBuffer: document.getElementById('xBuffer'),
+      yBuffer: document.getElementById('yBuffer'),
+      zBuffer: document.getElementById('zBuffer'),
+      applyBuffersBtn: document.getElementById('applyBuffersBtn'),
+      startBtn: document.getElementById('startBtn'),
+      stopBtn: document.getElementById('stopBtn'),
+      clearBtn: document.getElementById('clearBtn'),
+      resetViewBtn: document.getElementById('resetViewBtn'),
+      exportBtn: document.getElementById('exportBtn')
+    };
+
+    let isConnected = false;
+    let isPolling = false;
+    let pollInFlight = false;
+    let currentRange = null;
+    let pollHandle = null;
+
+    function setStatus(text) {
+      dom.connectStatus.textContent = text;
+    }
+
+    function setPill(element, text, kind='') {
+      element.textContent = text;
+      element.className = 'pill' + (kind ? ' ' + kind : '');
+    }
+
+    function fillSelect(select, options, selected) {
+      select.innerHTML = '';
+      const empty = document.createElement('option');
+      empty.value = '';
+      empty.textContent = '– bitte wählen –';
+      select.appendChild(empty);
+      (options || []).forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name;
+        if (name === selected) opt.selected = true;
+        select.appendChild(opt);
+      });
+      if (!selected) select.value = '';
+    }
+
+    function initChart() {
+      Plotly.newPlot('chart', [
+        { x: [], y: [], mode: 'lines', name: 'a_x' },
+        { x: [], y: [], mode: 'lines', name: 'a_y' },
+        { x: [], y: [], mode: 'lines', name: 'a_z' },
+        { x: [], y: [], mode: 'lines', name: '|a|' }
+      ], {
+        title: 'Beschleunigung über der Zeit',
+        xaxis: {
+          title: 'Zeit [s]',
+          rangeslider: { visible: true }
+        },
+        yaxis: {
+          title: 'Beschleunigung'
+        },
+        margin: { t: 50, r: 20, b: 60, l: 60 },
+        legend: { orientation: 'h' },
+        hovermode: 'x unified'
+      }, {
+        responsive: true,
+        displaylogo: false
+      });
+
+      const chart = document.getElementById('chart');
+      chart.on('plotly_relayout', ev => {
+        if (Object.prototype.hasOwnProperty.call(ev, 'xaxis.range[0]') && Object.prototype.hasOwnProperty.call(ev, 'xaxis.range[1]')) {
+          currentRange = [Number(ev['xaxis.range[0]']), Number(ev['xaxis.range[1]'])];
+        } else if (ev['xaxis.autorange']) {
+          currentRange = null;
+        }
+        updateRangeLabel();
+      });
+    }
+
+    function clearChart() {
+      Plotly.react('chart', [
+        { x: [], y: [], mode: 'lines', name: 'a_x' },
+        { x: [], y: [], mode: 'lines', name: 'a_y' },
+        { x: [], y: [], mode: 'lines', name: 'a_z' },
+        { x: [], y: [], mode: 'lines', name: '|a|' }
+      ], {
+        title: 'Beschleunigung über der Zeit',
+        xaxis: { title: 'Zeit [s]', rangeslider: { visible: true }, autorange: true },
+        yaxis: { title: 'Beschleunigung', autorange: true },
+        margin: { t: 50, r: 20, b: 60, l: 60 },
+        legend: { orientation: 'h' },
+        hovermode: 'x unified'
+      }, { responsive: true, displaylogo: false });
+      currentRange = null;
+      dom.countValue.textContent = '0';
+      dom.latestPill.textContent = 't = –';
+      updateRangeLabel();
+    }
+
+    function updateRangeLabel() {
+      if (!currentRange || Number.isNaN(currentRange[0]) || Number.isNaN(currentRange[1])) {
+        dom.rangeValue.textContent = 'komplett';
+        return;
+      }
+      dom.rangeValue.textContent = `${currentRange[0].toFixed(3)} s – ${currentRange[1].toFixed(3)} s`;
+    }
+
+    async function api(url, options={}) {
+      const response = await fetch(url, {
+        headers: { 'Content-Type': 'application/json' },
+        ...options
+      });
+      const type = response.headers.get('content-type') || '';
+      if (type.includes('application/json')) {
+        return await response.json();
+      }
+      return response;
+    }
+
+    function setControlsEnabled(enabled) {
+      dom.applyBuffersBtn.disabled = !enabled;
+      dom.startBtn.disabled = !enabled;
+      dom.stopBtn.disabled = !enabled;
+      dom.clearBtn.disabled = !enabled;
+      dom.exportBtn.disabled = !enabled;
+      dom.resetViewBtn.disabled = !enabled;
+    }
+
+    async function connect() {
+      setStatus('Verbinde mit phyphox ...');
+      const result = await api('/api/connect', {
+        method: 'POST',
+        body: JSON.stringify({ base_url: dom.baseUrl.value })
+      });
+      if (!result.ok) {
+        isConnected = false;
+        setControlsEnabled(false);
+        setPill(dom.connPill, 'nicht verbunden', 'danger');
+        setStatus(result.error || 'Verbindung fehlgeschlagen.');
+        return;
+      }
+      isConnected = true;
+      setControlsEnabled(true);
+      setPill(dom.connPill, 'verbunden', 'ok');
+      dom.experimentTitle.textContent = result.experiment_title || 'phyphox';
+      fillSelect(dom.timeBuffer, result.buffer_options, result.detected.time);
+      fillSelect(dom.xBuffer, result.buffer_options, result.detected.x);
+      fillSelect(dom.yBuffer, result.buffer_options, result.detected.y);
+      fillSelect(dom.zBuffer, result.buffer_options, result.detected.z);
+      clearChart();
+      setStatus(`Verbunden mit ${result.base_url}\nExperiment: ${result.experiment_title || 'phyphox'}`);
+      await applyBuffers(false);
+      startPolling();
+    }
+
+    async function loadState() {
+      const result = await api('/api/state');
+      if (!result.ok) {
+        setStatus('Status konnte nicht geladen werden.');
+        return;
+      }
+      isConnected = !!result.connected;
+      dom.experimentTitle.textContent = result.experiment_title || '–';
+      fillSelect(dom.timeBuffer, result.buffer_options || [], result.buffers?.time || '');
+      fillSelect(dom.xBuffer, result.buffer_options || [], result.buffers?.x || '');
+      fillSelect(dom.yBuffer, result.buffer_options || [], result.buffers?.y || '');
+      fillSelect(dom.zBuffer, result.buffer_options || [], result.buffers?.z || '');
+      setControlsEnabled(isConnected);
+      setPill(dom.connPill, isConnected ? 'verbunden' : 'nicht verbunden', isConnected ? 'ok' : 'danger');
+      setStatus(isConnected ? `Verbindung aktiv: ${result.base_url || ''}` : 'Noch keine Verbindung.');
+      if (isConnected) startPolling();
+    }
+
+    async function applyBuffers(showMessage=true) {
+      if (!isConnected) return;
+      const payload = {
+        time: dom.timeBuffer.value,
+        x: dom.xBuffer.value,
+        y: dom.yBuffer.value,
+        z: dom.zBuffer.value
+      };
+      const result = await api('/api/buffers', {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+      if (!result.ok) {
+        setStatus(result.error || 'Buffer konnten nicht gesetzt werden.');
+        return;
+      }
+      clearChart();
+      if (showMessage) setStatus('Buffer übernommen.');
+    }
+
+    async function control(command) {
+      const result = await api(`/api/control/${command}`, { method: 'POST', body: '{}' });
+      if (!result.ok) {
+        setStatus(result.error || `Befehl ${command} fehlgeschlagen.`);
+        return;
+      }
+      if (command === 'clear') {
+        clearChart();
+        setPill(dom.runPill, 'geleert', 'warn');
+      }
+    }
+
+    async function pollOnce() {
+      if (!isConnected || !isPolling || pollInFlight) return;
+      pollInFlight = true;
+      try {
+        const result = await api('/api/poll');
+        if (!result.ok) {
+          setStatus(result.error || 'Polling fehlgeschlagen.');
+          setPill(dom.runPill, 'Fehler', 'danger');
+          return;
+        }
+
+        const chunk = result.chunk || { time: [], x: [], y: [], z: [], mag: [] };
+        if (chunk.time.length > 0) {
+          Plotly.extendTraces('chart', {
+            x: [chunk.time, chunk.time, chunk.time, chunk.time],
+            y: [chunk.x, chunk.y, chunk.z, chunk.mag]
+          }, [0, 1, 2, 3]);
+        }
+
+        dom.countValue.textContent = String(result.count || 0);
+        dom.measuringValue.textContent = result.status?.measuring ? 'läuft' : 'pausiert';
+        setPill(dom.runPill, result.status?.measuring ? 'Messung läuft' : 'Messung pausiert', result.status?.measuring ? 'ok' : 'warn');
+        if (result.latest && result.latest.time !== undefined && result.latest.time !== null) {
+          dom.latestPill.textContent = `t = ${Number(result.latest.time).toFixed(3)} s`;
+        }
+      } finally {
+        pollInFlight = false;
+      }
+    }
+
+    function startPolling() {
+      if (pollHandle) return;
+      isPolling = true;
+      pollHandle = setInterval(() => {
+        pollOnce().catch(err => {
+          setStatus(`Polling-Fehler: ${err}`);
+        });
+      }, 300);
+    }
+
+    async function exportVisible() {
+      const payload = currentRange ? { start: currentRange[0], end: currentRange[1] } : { start: null, end: null };
+      const response = await fetch('/api/export', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        const data = await response.json();
+        setStatus(data.error || 'Export fehlgeschlagen.');
+        return;
+      }
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const disposition = response.headers.get('Content-Disposition') || '';
+      const match = disposition.match(/filename="?([^";]+)"?/i);
+      a.href = url;
+      a.download = match ? match[1] : 'phyphox_export.xlsx';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+      setStatus('Excel-Datei exportiert.');
+    }
+
+    function resetView() {
+      Plotly.relayout('chart', { 'xaxis.autorange': true, 'yaxis.autorange': true });
+      currentRange = null;
+      updateRangeLabel();
+    }
+
+    dom.connectBtn.addEventListener('click', () => connect().catch(err => setStatus(String(err))));
+    dom.stateBtn.addEventListener('click', () => loadState().catch(err => setStatus(String(err))));
+    dom.applyBuffersBtn.addEventListener('click', () => applyBuffers().catch(err => setStatus(String(err))));
+    dom.startBtn.addEventListener('click', () => control('start').catch(err => setStatus(String(err))));
+    dom.stopBtn.addEventListener('click', () => control('stop').catch(err => setStatus(String(err))));
+    dom.clearBtn.addEventListener('click', () => control('clear').catch(err => setStatus(String(err))));
+    dom.exportBtn.addEventListener('click', () => exportVisible().catch(err => setStatus(String(err))));
+    dom.resetViewBtn.addEventListener('click', resetView);
+
+    initChart();
+    setControlsEnabled(false);
+    loadState().catch(() => {});
+  </script>
+</body>
+</html>

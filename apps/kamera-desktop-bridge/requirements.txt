@@ -1,0 +1,4 @@
+# Fallback Kamera Desktop Bridge
+PySide6>=6.6,<7.0
+opencv-python>=4.9,<5.0
+numpy>=1.26,<3.0

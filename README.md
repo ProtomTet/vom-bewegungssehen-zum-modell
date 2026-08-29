@@ -1,0 +1,72 @@
+# Vom Bewegungssehen zum Modell — Begleitsoftware
+
+Fünf kleine Python-Anwendungen zum Seminar bzw. Reader *Vom Bewegungssehen zum Modell.
+Sprint, Sprung und Wurf als fächerverbindender Lernraum für Sport, Mathematik, Physik,
+Biologie und Informatik.*
+
+Die Programme ersetzen keine Fachsoftware. Sie sind bewusst klein und lesbar gehalten,
+damit im Seminar nachvollziehbar bleibt, was sie rechnen — und damit Studierende sie
+verändern können. Für Kinovea und Tracker sind sie eine Ergänzung, kein Ersatz.
+
+## Die Anwendungen
+
+| Ordner | Zweck | Gebraucht in |
+|---|---|---|
+| [`videoplayer-kalibrierung`](apps/videoplayer-kalibrierung/) | Videoplayer mit Kalibrierung und Overlay | Tag 1, Aufgabe 1 und 2 sowie Tag 2, Aufgabe 3 |
+| [`kamera-desktop-bridge`](apps/kamera-desktop-bridge/) | Smartphone-Livebild am Rechner aufzeichnen | alle Aufnahmesituationen |
+| [`phyphox-echtzeit`](apps/phyphox-echtzeit/) | Beschleunigungsdaten aus phyphox live abrufen und als Excel exportieren | Tag 2, Aufgabe 4 |
+| [`kugelstoss-liveanalyse`](apps/kugelstoss-liveanalyse/) | Live-Ansicht und Phasenerkennung fuer den Kugelstoss | Tag 3, Aufgabe 9 |
+| [`flugbahn-modellierer`](apps/flugbahn-modellierer/) | Flugbahnen modellieren, Parameter variieren, Rechenweg anzeigen | Tag 3, Aufgabe 7 und 8 |
+
+## Schnellstart
+
+Voraussetzung ist Python 3.11 oder neuer. Im Ordner des Repositories:
+
+```powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Danach lässt sich jede Anwendung über ihr Startskript öffnen, zum Beispiel:
+
+```powershell
+.\apps\flugbahn-modellierer\start_flugbahn_modellierer.ps1
+```
+
+Die Startskripte suchen automatisch nach einer Umgebung `.venv` im Wurzelverzeichnis und
+greifen sonst auf das global installierte `python` zurück. Ausführlicher steht das in
+[`docs/INSTALLATION.md`](docs/INSTALLATION.md).
+
+## Was die Programme voraussetzen
+
+* **phyphox** auf dem Smartphone, für die beiden Sensoranwendungen. Rechner und Smartphone
+  müssen im selben Netzwerk sein; ein eigener Hotspot ist zuverlässiger als ein
+  Hochschul- oder Schulnetz.
+* **DroidCam** oder eine vergleichbare Lösung, wenn das Smartphone als Kamera am Rechner
+  dienen soll.
+* Für die Sprungauswertung Videoaufnahmen in **Zeitlupe**. Bei 30 Bildern pro Sekunde ist
+  die Ablesegenauigkeit der Sprunghöhe mit rund ±3,8 cm größer als der Unterschied
+  zwischen Countermovement Jump und Squat Jump, den die Aufgabe zeigen soll. Sinnvoll sind
+  mindestens 120, besser 240 Bilder pro Sekunde.
+
+## Geprüfte Bezugswerte
+
+Der Flugbahn-Modellierer ist auf die Musterlösungen des Readers abgestimmt:
+
+| Voreinstellung | Eingangswerte | Erwartete Weite |
+|---|---|---|
+| Kugelstoß | v₀ = 10,34 m/s, α = 37,05°, h₀ = 1,83 m, x₀ = 0,51 m | 13,02 m |
+| Weitsprung | v₀ = 7,24 m/s, α = 23,02°, h₀ = 1,04 m, x₀ = 0,35 m | 5,89 m |
+
+Weichen die Werte ab, ist das ein Fehler und kein didaktischer Spielraum.
+
+## Mitarbeit
+
+Rückmeldungen und Fehlermeldungen sind willkommen — am besten als Issue. Wer eine
+Anwendung im eigenen Unterricht angepasst hat, kann den Stand gern als Pull Request
+beisteuern.
+
+## Lizenz
+
+Siehe [`LICENSE`](LICENSE). *Die Lizenz ist noch festzulegen — siehe Hinweis in der Datei.*

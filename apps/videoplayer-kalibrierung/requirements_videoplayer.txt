@@ -1,0 +1,5 @@
+# Fallback Videoplayer Kalibrierung
+# Hinweis: tkinter ist unter Windows Teil der Python-Standardinstallation
+# und wird NICHT ueber pip installiert.
+opencv-python>=4.9,<5.0
+Pillow>=10.0,<12.0
