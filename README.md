@@ -10,6 +10,12 @@ Die Programme ersetzen keine Fachsoftware. Sie sind bewusst klein und lesbar geh
 damit im Seminar nachvollziehbar bleibt, was sie rechnen — und damit Studierende sie
 verändern können. Für Kinovea und Tracker sind sie eine Ergänzung, kein Ersatz.
 
+Vor allem aber sind sie **Notfalllösungen**. Im Seminar bauen die Studierenden ihr eigenes
+Werkzeug; das ist der Lerngegenstand, nicht das Bedienen eines fertigen. Diese fünf
+Anwendungen fangen den Fall auf, dass das im verfügbaren Zeitrahmen nicht zustande kommt —
+damit niemand am Werkzeug scheitert statt an der Sache. Wer weiterkommt, braucht sie nicht.
+Der Startpunkt fürs Selberbauen liegt in [`vorlagen`](vorlagen/).
+
 ## Die Anwendungen
 
 | Ordner | Zweck | Gebraucht in |
@@ -19,6 +25,22 @@ verändern können. Für Kinovea und Tracker sind sie eine Ergänzung, kein Ersa
 | [`phyphox-echtzeit`](apps/phyphox-echtzeit/) | Beschleunigungsdaten aus phyphox live abrufen und als Excel exportieren | Tag 2, Aufgabe 4 |
 | [`kugelstoss-liveanalyse`](apps/kugelstoss-liveanalyse/) | Live-Ansicht und Phasenerkennung fuer den Kugelstoss | Tag 3, Aufgabe 9 |
 | [`flugbahn-modellierer`](apps/flugbahn-modellierer/) | Flugbahnen modellieren, Parameter variieren, Rechenweg anzeigen | Tag 3, Aufgabe 7 und 8 |
+
+## Vorlagen zum Selberbauen
+
+Der Ordner [`vorlagen`](vorlagen/) enthält den Anfang eines Programms, nicht das Programm:
+den Teil, der immer gleich ist, mit `TODO` an genau den Stellen, an denen die fachliche
+Entscheidung fällt.
+
+| Datei | Wofür | Gebraucht in |
+|---|---|---|
+| [`impuls_aus_beschleunigung.py`](vorlagen/impuls_aus_beschleunigung.py) | Beschleunigungsdaten einlesen und zu einer Geschwindigkeit aufintegrieren | Tag 2, Aufgabe 4 und 5 |
+| [`wurfweite_winkelsweep.py`](vorlagen/wurfweite_winkelsweep.py) | Wurfweite über den Abwurfwinkel durchrechnen und das Maximum suchen | Tag 3, Aufgabe 7 und 8 |
+| [`KI_Prompt_Sammlung.md`](vorlagen/KI_Prompt_Sammlung.md) | Einstiegsprompts für die Programmieranteile, nach Aufgaben geordnet, jeweils mit Gegenprobe | alle Programmieranteile |
+
+Beide Skripte kommen ohne zusätzliche Bibliotheken aus und laufen mit reinem Python. Das ist
+Absicht: Wer die Trapezregel einmal als Schleife geschrieben hat, weiß danach, was
+`numpy.trapezoid` tut.
 
 ## Arbeitsmaterial
 

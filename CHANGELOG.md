@@ -1,5 +1,34 @@
 # Änderungen
 
+## 1.2.0 — 31.08.2026
+
+### Neu
+* **Vorlagen zum Selberbauen** unter `vorlagen/`. Sie enthalten den Anfang eines Programms,
+  nicht das Programm: den Teil, der immer gleich ist, mit `TODO` an den Stellen, an denen die
+  fachliche Entscheidung fällt. Beide Skripte laufen mit reinem Python, ohne zusätzliche
+  Bibliotheken.
+  * `vorlagen/impuls_aus_beschleunigung.py` — Beschleunigungsdaten einlesen, Ruhewert
+    abziehen und zu einer Geschwindigkeit aufintegrieren. Gehört zu den Aufgaben 4 und 5.
+  * `vorlagen/wurfweite_winkelsweep.py` — Wurfweite über den Abwurfwinkel durchrechnen.
+    Rechnet zunächst nur den Schulfall mit Abwurfhöhe null und weist beim Ausführen selbst
+    darauf hin, dass ein Ergebnis von 45 Grad bei angegebener Abwurfhöhe nicht sein kann.
+    Gehört zu den Aufgaben 7 und 8, der allgemeine Fall steht in Anhang B des Readers.
+  * `vorlagen/KI_Prompt_Sammlung.md` — Einstiegsprompts für die Programmieranteile, nach
+    Aufgaben geordnet. Zu jedem Prompt gehört die Gegenprobe, an der sich das Ergebnis
+    prüfen lässt.
+
+### Geändert
+* Die Einordnung der fünf Anwendungen in `README.md` war unvollständig. Sie sind
+  ausdrücklich **Notfalllösungen**: Im Seminar bauen die Studierenden ihr eigenes Werkzeug,
+  das ist der Lerngegenstand. Die Anwendungen fangen den Fall auf, dass das im verfügbaren
+  Zeitrahmen nicht zustande kommt — damit niemand am Werkzeug scheitert statt an der Sache.
+
+### Hinweis zur Herkunft der Vorlagen
+Die beiden Skripte gehen auf zwei Coding-Lab-Gerüste aus dem Begleitmaterial der ersten
+Fassung zurück. Sie wurden auf den Aufgabenstand der zweiten Fassung gezogen; der offene
+Punkt „Abwurfhöhe einbauen" ist bewusst offen geblieben, weil er inzwischen einem
+ausgeführten Anhang des Readers entspricht und damit als Übung tragfähig ist.
+
 ## 1.1.0 — 29.08.2026
 
 ### Neu
