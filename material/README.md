@@ -10,8 +10,8 @@ Transparentpapier und Taschenrechner loesen. Was hier liegt, spart Zeit — es e
 
 | Datei | Wofuer |
 |---|---|
-| `Vorlage_CMJ_Auswertung.xlsx` | Auswertung eines Countermovement Jump aus phyphox-Daten. Gehoert zu **Aufgabe 5**. Sechs Blaetter: Anleitung, Rohdaten, Eingaben, Auswertung, Ergebnis, Diagramme. Rechnet mit und prueft die Anfangsbedingung ueber die Kontrollen K1 bis K4. |
-| `Beispielauswertung_CMJ_ausgefuellt.xlsx` | Dieselbe Vorlage, gefuellt mit den 2794 Messpunkten aus `daten/Rohdaten_CMJ_Smartphone.xlsx`. Zum Vergleich und zur Vorbereitung. |
+| `Vorlage_CMJ_Auswertung.xlsx` | Auswertung eines Countermovement Jump aus phyphox-Daten. Gehoert zu **Aufgabe 5**. Sechs Blaetter: Anleitung, Rohdaten, Eingaben, Auswertung, Ergebnis, Diagramme. Rechnet mit, prueft die Anfangsbedingung ueber K1 bis K4 und erlaubt die manuelle Ereigniswahl anhand der Datenpunktnummer im Diagramm. |
+| `Beispielauswertung_CMJ_ausgefuellt.xlsx` | Dieselbe Vorlage, gefuellt mit den 2794 Messpunkten aus `daten/Rohdaten_CMJ_Smartphone.xlsx`. Bewegungsbeginn, Absprung und Landung sind als Datenpunkte dokumentiert. Zum Vergleich und zur Vorbereitung. |
 
 **Wichtig:** In einer Tabellenkalkulation oeffnen, die Formeln ausfuehrt. Wird die Datei in
 einer Online-Vorschau angezeigt, rechnet sie nicht.
@@ -20,7 +20,7 @@ einer Online-Vorschau angezeigt, rechnet sie nicht.
 
 | Datei | Wofuer |
 |---|---|
-| `Rohdaten_CMJ_Smartphone.xlsx` | Eigene Aufnahme eines Countermovement Jump, rund 208 Hz, 2794 Messpunkte. Grundlage der **Aufgaben 4 und 5**, wenn keine eigene Messung moeglich ist. |
+| `Rohdaten_CMJ_Smartphone.xlsx` | Bereinigte Uebungsdatei einer eigenen Countermovement-Jump-Aufnahme, rund 208 Hz, 2794 Messpunkte. Sie enthaelt ein Hinweisblatt und die unveraenderten Rohdaten ohne Formeln oder Ereignismarken. `A2:D2795` wird in Blatt `01_Rohdaten` der Vorlage kopiert. Grundlage der **Aufgaben 4 und 5**, wenn keine eigene Messung moeglich ist. |
 | `Datensatz_Differenzzeiten_Sprint_Weltklasse.xlsx` | Zwischen- und Differenzzeiten aus dem 100-m-Finale von Tokio 1991 sowie ein zweiter Satz zum Beschleunigungsverhalten. Grundlage der **Zusatzaufgabe S1**. Das dritte Blatt enthaelt Schrittfrequenz und Schrittlaenge. |
 
 Zur Herkunft des Sprintdatensatzes: Die Werte stammen aus dem Bericht des IAAF Scientific

@@ -128,8 +128,8 @@ falls dieses Repository später umzieht oder umbenannt wird.
 
 | | |
 |---|---|
-| **Concept-DOI** (immer die neueste Fassung) | [`10.5281/zenodo.22161338`](https://doi.org/10.5281/zenodo.22161338) |
-| DOI der Fassung 1.0.1 | [`10.5281/zenodo.22161339`](https://doi.org/10.5281/zenodo.22161339) |
+| **Concept-DOI** (alle Fassungen; führt zur neuesten) | [`10.5281/zenodo.22161338`](https://doi.org/10.5281/zenodo.22161338) |
 
 In gedruckten Materialien sollte die Concept-DOI angegeben werden — sie führt Leserinnen
-und Leser automatisch zur jeweils aktuellen Fassung.
+und Leser automatisch zur jeweils aktuellen Fassung. Die DOI einzelner Fassungen sind auf
+der Zenodo-Seite unter „Versions“ aufgeführt.

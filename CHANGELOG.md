@@ -1,5 +1,23 @@
 # Änderungen
 
+## 1.2.1 — 22.09.2026
+
+### Behoben
+* **CMJ-Auswertung:** Die automatische Erkennung von Absprung und Landung verwendet keine
+  fehlerhaft gespeicherten `MINWENNS`- und `MAXWENNS`-Formeln mehr. Sie liefert jetzt den
+  ersten und letzten Datenpunkt der erkannten Flugphase.
+* **Kontrolle K4:** Die Mindestgeschwindigkeit vor dem Absprung wird mit einer kompatiblen
+  Formel bestimmt. Ein Formelfehler kann deshalb nicht mehr unbemerkt als leeres Ergebnis
+  erscheinen.
+
+### Geändert
+* Bewegungsbeginn, manueller Absprung und manuelle Landung werden als Datenpunktnummern
+  eingegeben. Die zugehörigen Messzeiten berechnet die Arbeitsmappe aus der tatsächlichen
+  Zeitspalte. Die Diagramme verwenden dafür ebenfalls die Datenpunktnummer als x-Achse.
+* `material/daten/Rohdaten_CMJ_Smartphone.xlsx` ist jetzt eine saubere Übungsdatei mit
+  Hinweisblatt und 2794 unveränderten Messpunkten. Formeln, Ereignismarken und fertige
+  Auswertungen sind bewusst nicht enthalten.
+
 ## 1.2.0 — 31.08.2026
 
 ### Neu
