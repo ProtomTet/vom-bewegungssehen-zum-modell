@@ -50,6 +50,18 @@ finden sich im Reader, Teil VII.
 | 08 | Kugelstoss: theoretische Weite aus den Abwurfbedingungen | Video |
 | 09 | Sensorik beim Kugelstoss | — (Ausblick) |
 
+### Abschlussaufgabe
+
+Die Abschlussaufgabe uebertraegt den Erkenntnisweg des Seminars auf ein schulisches
+Sportfest mit fächerverbindenden Wissensstationen. Aufgabenstellung und transparenter
+Erwartungshorizont stehen gemeinsam in zwei Formaten bereit:
+
+- [Word-Datei](aufgabenblaetter/Abschlussaufgabe_Sportfest_Wissensstationen_mit_Erwartungshorizont.docx)
+- [PDF-Datei](aufgabenblaetter/Abschlussaufgabe_Sportfest_Wissensstationen_mit_Erwartungshorizont.pdf)
+
+Der Haupttext der studentischen Ausarbeitung umfasst fuenf Seiten; Deckblatt,
+Literaturverzeichnis und tabellarische Lehrplananbindung werden nicht mitgezaehlt.
+
 ## Lizenz
 
 Alles in diesem Ordner steht wie der uebrige Reader unter

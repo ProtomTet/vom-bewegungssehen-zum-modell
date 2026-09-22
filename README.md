@@ -51,7 +51,7 @@ sich aber nicht drucken laesst.
 |---|---|
 | [`material/excel`](material/excel/) | Auswertungsvorlage fuer den Countermovement Jump und ein ausgefuelltes Beispiel |
 | [`material/daten`](material/daten/) | Sprungrohdaten und der Sprintdatensatz zu Tokio 1991 |
-| [`material/aufgabenblaetter`](material/aufgabenblaetter/) | die neun Aufgaben als einzelne, bearbeitbare Dateien |
+| [`material/aufgabenblaetter`](material/aufgabenblaetter/) | die neun Aufgaben sowie die Abschlussaufgabe mit Erwartungshorizont als Word- und PDF-Datei |
 
 Wer nur die Dateien braucht und nicht durch das Repositorium klicken moechte, laedt das
 Gesamtarchiv ueber die
