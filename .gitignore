@@ -12,7 +12,13 @@ desktop.ini
 *.avi
 *.xlsx
 !apps/**/beispiel*.xlsx
+# Konfiguration der Video-Flugbahn-App gehoert zur Anwendung
+!apps/kugelstoss-video-flugbahn-modellierer/.streamlit/
+!apps/kugelstoss-video-flugbahn-modellierer/.streamlit/config.toml
 # Das Arbeitsmaterial gehoert ausdruecklich dazu
 !material/**/*.xlsx
+!material/videos/
+!material/videos/*.mp4
+!material/videos/*.mov
 .vscode/
 .idea/

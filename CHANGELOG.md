@@ -1,5 +1,17 @@
 # Änderungen
 
+## 1.3.0 — 24.09.2026
+
+### Neu
+* **Kugelstoss-Video-Flugbahn-Modellierer:** eigenstaendige Streamlit-Anwendung fuer
+  Normal-, Zeitlupen- und kombinierte Videos. Sie kalibriert das Videobild in zwei
+  Dimensionen, bestimmt die Abwurfparameter aus markierten Kugelpunkten und fuehrt die
+  Simulation unverzerrt direkt am Release-Bild fort.
+* **Flugbahnmodell als Excel-Arbeitsmappe:**
+  `material/excel/Flugbahnmodell_Weitsprung_Kugelstoss.xlsx` fuer Aufgabe 7 und 8.
+* **Beispielvideos:** Aufnahmen zu CMJ, Weitsprung und Kugelstoss unter `material/videos/`.
+  Die grossen Mediendateien werden ueber Git LFS bereitgestellt.
+
 ## 1.2.1 — 22.09.2026
 
 ### Behoben

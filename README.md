@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22161338.svg)](https://doi.org/10.5281/zenodo.22161338)
 
-Fünf kleine Python-Anwendungen zum Seminar bzw. Reader *Vom Bewegungssehen zum Modell.
+Sechs kleine Python-Anwendungen zum Seminar bzw. Reader *Vom Bewegungssehen zum Modell.
 Sprint, Sprung und Wurf als fächerverbindender Lernraum für Sport, Mathematik, Physik,
 Biologie und Informatik.*
 
@@ -11,7 +11,7 @@ damit im Seminar nachvollziehbar bleibt, was sie rechnen — und damit Studieren
 verändern können. Für Kinovea und Tracker sind sie eine Ergänzung, kein Ersatz.
 
 Vor allem aber sind sie **Notfalllösungen**. Im Seminar bauen die Studierenden ihr eigenes
-Werkzeug; das ist der Lerngegenstand, nicht das Bedienen eines fertigen. Diese fünf
+Werkzeug; das ist der Lerngegenstand, nicht das Bedienen eines fertigen. Diese sechs
 Anwendungen fangen den Fall auf, dass das im verfügbaren Zeitrahmen nicht zustande kommt —
 damit niemand am Werkzeug scheitert statt an der Sache. Wer weiterkommt, braucht sie nicht.
 Der Startpunkt fürs Selberbauen liegt in [`vorlagen`](vorlagen/).
@@ -25,6 +25,7 @@ Der Startpunkt fürs Selberbauen liegt in [`vorlagen`](vorlagen/).
 | [`phyphox-echtzeit`](apps/phyphox-echtzeit/) | Beschleunigungsdaten aus phyphox live abrufen und als Excel exportieren | Tag 2, Aufgabe 4 |
 | [`kugelstoss-liveanalyse`](apps/kugelstoss-liveanalyse/) | Live-Ansicht und Phasenerkennung fuer den Kugelstoss | Tag 3, Aufgabe 9 |
 | [`flugbahn-modellierer`](apps/flugbahn-modellierer/) | Flugbahnen modellieren, Parameter variieren, Rechenweg anzeigen | Tag 3, Aufgabe 7 und 8 |
+| [`kugelstoss-video-flugbahn-modellierer`](apps/kugelstoss-video-flugbahn-modellierer/) | Kugel aus Normal- oder Zeitlupenvideos tracken, Abwurfparameter bestimmen und die Simulation direkt am Release-Bild fortsetzen | Tag 3, Aufgabe 8 |
 
 ## Vorlagen zum Selberbauen
 
@@ -52,6 +53,7 @@ sich aber nicht drucken laesst.
 | [`material/excel`](material/excel/) | Auswertungsvorlage fuer den Countermovement Jump und ein ausgefuelltes Beispiel |
 | [`material/daten`](material/daten/) | Sprungrohdaten und der Sprintdatensatz zu Tokio 1991 |
 | [`material/aufgabenblaetter`](material/aufgabenblaetter/) | die neun Aufgaben sowie die Abschlussaufgabe mit Erwartungshorizont als Word- und PDF-Datei |
+| [`material/videos`](material/videos/) | Beispielvideos zu CMJ, Weitsprung und Kugelstoss; grosse Dateien werden über Git LFS bereitgestellt |
 
 Wer nur die Dateien braucht und nicht durch das Repositorium klicken moechte, laedt das
 Gesamtarchiv ueber die

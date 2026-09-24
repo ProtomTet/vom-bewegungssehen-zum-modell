@@ -12,6 +12,7 @@ Transparentpapier und Taschenrechner loesen. Was hier liegt, spart Zeit — es e
 |---|---|
 | `Vorlage_CMJ_Auswertung.xlsx` | Auswertung eines Countermovement Jump aus phyphox-Daten. Gehoert zu **Aufgabe 5**. Sechs Blaetter: Anleitung, Rohdaten, Eingaben, Auswertung, Ergebnis, Diagramme. Rechnet mit, prueft die Anfangsbedingung ueber K1 bis K4 und erlaubt die manuelle Ereigniswahl anhand der Datenpunktnummer im Diagramm. |
 | `Beispielauswertung_CMJ_ausgefuellt.xlsx` | Dieselbe Vorlage, gefuellt mit den 2794 Messpunkten aus `daten/Rohdaten_CMJ_Smartphone.xlsx`. Bewegungsbeginn, Absprung und Landung sind als Datenpunkte dokumentiert. Zum Vergleich und zur Vorbereitung. |
+| `Flugbahnmodell_Weitsprung_Kugelstoss.xlsx` | Tabellenmodell fuer die Flugbahn von Weitsprung und Kugelstoss. Gehoert zu **Aufgabe 7 und 8**. |
 
 **Wichtig:** In einer Tabellenkalkulation oeffnen, die Formeln ausfuehrt. Wird die Datei in
 einer Online-Vorschau angezeigt, rechnet sie nicht.
@@ -28,6 +29,17 @@ Research Project zu den Weltmeisterschaften 1991 (Ae, M., Ito, A., & Suzuki, M. 
 men's 100 metres. *New Studies in Athletics, 7*(1), 47–52, Tabelle 2 auf S. 49). Der Artikel
 ist ueber das Archiv von World Athletics frei zugaenglich. Die Arbeitsmappe gibt nicht die
 Originaltabelle wieder, sondern die daraus abgeleitete Auswertung.
+
+## videos/
+
+Beispielaufnahmen fuer die videobasierte Analyse:
+
+- Countermovement Jump in Original- und Zeitlupenaufnahmen
+- Weitsprung in Normal- und Zeitlupenaufnahme
+- Kugelstoss als kombiniertes Video fuer den Video-Flugbahn-Modellierer
+
+Die Videodateien werden wegen ihrer Groesse ueber Git LFS verwaltet. Bei einem Git-Klon
+werden sie mit installiertem Git LFS vollstaendig geladen.
 
 ## aufgabenblaetter/
 

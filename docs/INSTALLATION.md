@@ -23,7 +23,7 @@ py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Der letzte Schritt dauert einige Minuten. Er installiert alles, was die fünf Anwendungen
+Der letzte Schritt dauert einige Minuten. Er installiert alles, was die sechs Anwendungen
 zusammen benötigen.
 
 ## 3. Starten
@@ -37,6 +37,7 @@ Jede Anwendung hat ein Startskript. Es findet die Umgebung `.venv` von selbst:
 | phyphox Echtzeit | `apps\phyphox-echtzeit\start_phyphox_echtzeit_app.ps1` |
 | Kugelstoß Live | `apps\kugelstoss-liveanalyse\start_kugelstoss_live_app.ps1` |
 | Flugbahn-Modellierer | `apps\flugbahn-modellierer\start_flugbahn_modellierer.ps1` |
+| Kugelstoß Video-Flugbahn | `apps\kugelstoss-video-flugbahn-modellierer\start_video_flugbahn_modellierer.ps1` |
 
 Lässt Windows das Skript nicht zu, hilft einmalig:
 
