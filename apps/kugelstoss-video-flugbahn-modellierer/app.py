@@ -38,7 +38,25 @@ except ImportError:
 
 st.set_page_config(page_title="Kugelstoß: Video & Flugbahn", page_icon="🎯", layout="wide")
 
-DEFAULT_VIDEO = APP_DIR.parent.parent / "08_Videos" / "Kugelstoß.mp4"
+def _seminarvideo() -> Path:
+    """Sucht das Seminarvideo an beiden Orten, an denen es liegen kann.
+
+    Im veroeffentlichten Repositorium liegt es unter material/videos, im
+    Seminarordner unter 08_Videos. Existiert keines von beiden, wird der erste
+    Kandidat zurueckgegeben — die Oberflaeche blendet die Auswahl dann aus.
+    """
+    name = "Kugelstoß.mp4"
+    kandidaten = (
+        APP_DIR.parent.parent / "material" / "videos" / name,
+        APP_DIR.parent.parent / "08_Videos" / name,
+    )
+    for kandidat in kandidaten:
+        if kandidat.exists():
+            return kandidat
+    return kandidaten[0]
+
+
+DEFAULT_VIDEO = _seminarvideo()
 COLORS = ["#00a6d6", "#d32f2f", "#2e7d32", "#ef6c00", "#6a1b9a", "#00838f"]
 APP_STATE_VERSION = 4
 

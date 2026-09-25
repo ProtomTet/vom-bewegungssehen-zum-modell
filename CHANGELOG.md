@@ -1,5 +1,33 @@
 # Änderungen
 
+## 1.4.0 — 25.09.2026
+
+### Neu
+* **Kugelstoss-Phyphox-Video-Sequenzanalyse:** siebte Anwendung. Sie legt Phyphox-Signal
+  und Videosequenzen desselben Stosses nebeneinander — entweder als Phasenreferenz, wenn
+  Video und Messung aus verschiedenen Versuchen stammen, oder ueber zwei gemeinsame
+  Ereignisse exakt synchronisiert. Die Anwendung benennt diese Grenze selbst: Bei blosser
+  Phasenreferenz duerfen absolute Zeiten nicht verglichen werden.
+* **Aufgabenpaar Digitale Weitsprunganalyse:** In der Seminaraufgabe entwickeln die
+  Studierenden ein eigenes Analysewerkzeug, in der Schueleraufgabe wird dieses Werkzeug
+  zur Lernumgebung fuer eine Klasse. Beide mit Bewertungsraster.
+* **Originalauswertung des CMJ-Datensatzes:** `material/daten/Rohdaten_CMJ_Smartphone_Originalauswertung.xlsx`
+  zeigt die ungekuerzte Aufnahme und die Zwischenschritte, aus denen die bereinigte
+  Uebungsdatei entstanden ist.
+
+### Behoben
+* **Seminarvideo wurde im Repositorium nicht gefunden.** Beide Videoanwendungen suchten es
+  nur unter `08_Videos`. Das trifft auf den Seminarordner zu; im Repositorium liegen die
+  Videos unter `material/videos`. Sie suchen jetzt an beiden Orten.
+* **Zwei OpenCV-Varianten im selben Bestand.** Die beiden neuen Anwendungen verlangten
+  `opencv-python-headless`, das uebrige Bestand `opencv-python`. Beide liefern das Modul
+  `cv2` und ueberschreiben einander in derselben Umgebung. Da nur Dekodierfunktionen
+  verwendet werden, gilt jetzt durchgaengig `opencv-python`.
+* **`.gitignore` haette die Streamlit-Konfiguration der neuen Anwendung uebergangen.**
+  Die Ausnahme fehlte; sie ist ergaenzt. Zusaetzlich sind Teilnehmerlisten nun
+  ausgeschlossen, damit Personendaten nicht versehentlich in eine Veroeffentlichung
+  unter CC BY-SA geraten.
+
 ## 1.3.0 — 24.09.2026
 
 ### Neu

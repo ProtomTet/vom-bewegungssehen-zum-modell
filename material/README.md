@@ -21,6 +21,7 @@ einer Online-Vorschau angezeigt, rechnet sie nicht.
 
 | Datei | Wofuer |
 |---|---|
+| `Rohdaten_CMJ_Smartphone_Originalauswertung.xlsx` | Die ungekuerzte Originalaufnahme mit 2795 Zeilen und den Zwischenschritten, aus denen die bereinigte Uebungsdatei entstanden ist: Kuerzung, Sprungbestimmung aus dem Beschleunigungssignal und eine geraffte Darstellung. Nicht fuer die Aufgabe noetig — sie belegt, wie aus einer Rohaufnahme ein Uebungsdatensatz wird. |
 | `Rohdaten_CMJ_Smartphone.xlsx` | Bereinigte Uebungsdatei einer eigenen Countermovement-Jump-Aufnahme, rund 208 Hz, 2794 Messpunkte. Sie enthaelt ein Hinweisblatt und die unveraenderten Rohdaten ohne Formeln oder Ereignismarken. `A2:D2795` wird in Blatt `01_Rohdaten` der Vorlage kopiert. Grundlage der **Aufgaben 4 und 5**, wenn keine eigene Messung moeglich ist. |
 | `Datensatz_Differenzzeiten_Sprint_Weltklasse.xlsx` | Zwischen- und Differenzzeiten aus dem 100-m-Finale von Tokio 1991 sowie ein zweiter Satz zum Beschleunigungsverhalten. Grundlage der **Zusatzaufgabe S1**. Das dritte Blatt enthaelt Schrittfrequenz und Schrittlaenge. |
 
@@ -61,6 +62,20 @@ finden sich im Reader, Teil VII.
 | 07 | Weitsprung analysieren und modellieren | Video |
 | 08 | Kugelstoss: theoretische Weite aus den Abwurfbedingungen | Video |
 | 09 | Sensorik beim Kugelstoss | — (Ausblick) |
+
+### Digitale Weitsprunganalyse — ein Aufgabenpaar
+
+Zwei Dokumente, die zusammengehoeren und den Weg von der Hochschule in die Schule
+abbilden. In der **Seminaraufgabe** entwickeln die Studierenden ein eigenes
+Analysewerkzeug; das blosse Weiterreichen der Daten an ein fertiges Programm erfuellt die
+Anforderung ausdruecklich nicht. In der **Schueleraufgabe** wird eben dieses studentische
+Programm zur Lernumgebung fuer eine Klasse.
+
+- [Seminaraufgabe Digitale Weitsprunganalyse](aufgabenblaetter/Seminaraufgabe_Digitale_Weitsprunganalyse.docx)
+  — Kompetenzziele, Mindestumfang des Programms, moegliche Messwege und ein
+  Bewertungsraster ueber 100 Punkte.
+- [Schueleraufgabe Weitsprung digital untersuchen](aufgabenblaetter/Schueleraufgabe_Digitale_Weitsprunganalyse.docx)
+  — Sekundarstufe II, mit Messtabelle, Modellvergleich und einem Raster ueber 20 Punkte.
 
 ### Abschlussaufgabe
 

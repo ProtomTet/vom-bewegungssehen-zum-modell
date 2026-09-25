@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22161338.svg)](https://doi.org/10.5281/zenodo.22161338)
 
-Sechs kleine Python-Anwendungen zum Seminar bzw. Reader *Vom Bewegungssehen zum Modell.
+Sieben kleine Python-Anwendungen zum Seminar bzw. Reader *Vom Bewegungssehen zum Modell.
 Sprint, Sprung und Wurf als fächerverbindender Lernraum für Sport, Mathematik, Physik,
 Biologie und Informatik.*
 
@@ -26,6 +26,7 @@ Der Startpunkt fürs Selberbauen liegt in [`vorlagen`](vorlagen/).
 | [`kugelstoss-liveanalyse`](apps/kugelstoss-liveanalyse/) | Live-Ansicht und Phasenerkennung fuer den Kugelstoss | Tag 3, Aufgabe 9 |
 | [`flugbahn-modellierer`](apps/flugbahn-modellierer/) | Flugbahnen modellieren, Parameter variieren, Rechenweg anzeigen | Tag 3, Aufgabe 7 und 8 |
 | [`kugelstoss-video-flugbahn-modellierer`](apps/kugelstoss-video-flugbahn-modellierer/) | Kugel aus Normal- oder Zeitlupenvideos tracken, Abwurfparameter bestimmen und die Simulation direkt am Release-Bild fortsetzen | Tag 3, Aufgabe 8 |
+| [`kugelstoss-phyphox-video-sequenzanalyse`](apps/kugelstoss-phyphox-video-sequenzanalyse/) | Phyphox-Signal und Videosequenzen desselben Stoßes nebeneinanderlegen — als Phasenreferenz oder über zwei gemeinsame Ereignisse exakt synchronisiert | Tag 3, Aufgabe 9 |
 
 ## Vorlagen zum Selberbauen
 
